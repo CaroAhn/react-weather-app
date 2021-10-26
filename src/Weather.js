@@ -14,27 +14,45 @@ export default function Weather() {
             />
           </div>
           <div className="col-3">
-            <input type="submit" value="Search" className="btn btn-primary" />
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary w-100"
+            />
           </div>
         </div>
       </form>
-      <h2>Atlanta</h2>
-      <h4>Monday 25th - 17:00</h4>
+      <h2 className="city-name">
+        <strong>Atlanta</strong>
+      </h2>
+      <h5>October, Monday 25 | 17:00</h5>
       <img
         src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
         alt="cloudy"
       />
-      <h1>55°C</h1>
-      <h5>Cloudy</h5>
-      <div className="row">
+      <h1>
+        <strong>23°C</strong>
+      </h1>
+      <h4>Cloudy</h4>
+      <hr />
+      <div className="row information">
         <div className="col-4">
-          <p>Wind: 18 km/h</p>
+          <p>
+            <strong className="data-name">WIND</strong>
+            <p className="data">18 km/h</p>
+          </p>
         </div>
         <div className="col-4">
-          <p>Humidity: 70%</p>
+          <p>
+            <strong className="data-name">HUMIDITY</strong>
+            <p className="data">70%</p>
+          </p>
         </div>
         <div className="col-4">
-          <p>Precipitacion: 15%</p>
+          <p>
+            <strong className="data-name">PRECIPITATION</strong>
+            <p className="data">15%</p>
+          </p>
         </div>
       </div>
     </div>

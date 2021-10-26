@@ -1,3 +1,44 @@
 .Weather {
-  border: 1px solid black;
+  border: 1px solid #fafafa;
+  font-family: "Open Sans", sans-serif;
+  padding: 16px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+.Weather hr {
+  height: 3px;
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: black;
+  margin-top: 30px;
+}
+
+.Weather h2 {
+  margin-top: 45px;
+}
+
+.Weather img {
+  margin: 40px auto;
+  width: 200px;
+}
+
+.Weather h4 {
+  color: grey;
+}
+
+.Weather .information {
+  margin-top: 35px;
+}
+
+.Weather .data {
+  font-weight: bolder;
+  color: grey;
+  font-size: 20px;
+}
+
+.Weather .data-name {
+  font-size: 15px;
 }
