@@ -17,6 +17,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       feels: response.data.main.feels_like,
       date: new Date(response.data.dt * 1000),
+      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
 
     setReady(true);
@@ -65,7 +66,7 @@ export default function Weather(props) {
         <h5>
           <FormatDate date={weatherData.date} />{" "}
         </h5>
-        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="cloudy" />
+        <img src={weatherData.iconUrl} alt="cloudy" />
         <h1>
           <strong>{Math.round(weatherData.temperature)}°C</strong>
         </h1>
