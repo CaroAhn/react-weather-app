@@ -3,9 +3,10 @@ import axios from "axios";
 import FormatDate from "./FormatDate";
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({});
   let [ready, setReady] = useState(false);
+  let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
     setWeatherData({
@@ -17,19 +18,36 @@ export default function Weather() {
       feels: response.data.main.feels_like,
       date: new Date(response.data.dt * 1000),
     });
+
     setReady(true);
+  }
+
+  function search() {
+    let apiKey = "24c105cc229d1df9d01862bf6747beae";
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
   }
 
   if (ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input
                 type="search"
                 placeholder="Enter a city..."
                 className="form-control"
+                onChange={handleCityChange}
               />
             </div>
             <div className="col-3">
@@ -47,10 +65,7 @@ export default function Weather() {
         <h5>
           <FormatDate date={weatherData.date} />{" "}
         </h5>
-        <img
-          src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-          alt="cloudy"
-        />
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="cloudy" />
         <h1>
           <strong>{Math.round(weatherData.temperature)}°C</strong>
         </h1>
@@ -79,11 +94,7 @@ export default function Weather() {
       </div>
     );
   } else {
-    let apiKey = "24c105cc229d1df9d01862bf6747beae";
-    let city = "Atlanta";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return "Wait a moment please...";
   }
 }
