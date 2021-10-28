@@ -18,7 +18,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       feels: response.data.main.feels_like,
       date: new Date(response.data.dt * 1000),
-      icon: response.data.weather[0].icon,
+      iconweather: response.data.weather[0].icon,
     });
 
     setReady(true);
