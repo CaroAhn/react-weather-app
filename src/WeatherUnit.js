@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./WeatherUnit.css";
+
 export default function WeatherUnit(props) {
   let [unit, setUnit] = useState("celsius");
 
@@ -14,13 +16,13 @@ export default function WeatherUnit(props) {
   }
 
   function farenheit() {
-    return (props * 9) / 5 + 32;
+    return (props.celsius * 9) / 5 + 32;
   }
 
   if (unit === "celsius") {
     return (
       <strong>
-        {Math.round(weatherData.temperature)}°C |{" "}
+        {Math.round(props.celsius)}°C |{" "}
         <a href="/" onClick={convertFarenheit}>
           °F
         </a>{" "}
@@ -29,11 +31,11 @@ export default function WeatherUnit(props) {
   } else {
     return (
       <strong>
-        {Math.round(farenheit())}
+        {Math.round(farenheit())}{" "}
         <a href="/" onClick={convertCelsius}>
           °C
         </a>{" "}
-        °F
+        | °F
       </strong>
     );
   }

@@ -45,3 +45,7 @@
 .Weather .data-name {
   font-size: 15px;
 }
+
+.WeatherUnit .a {
+  text-decoration: none;
+}
