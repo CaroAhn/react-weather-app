@@ -3,6 +3,8 @@ import axios from "axios";
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherUnit from "./WeatherUnit";
+import WeatherForecast from "./WeatherForecast";
+
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -12,6 +14,7 @@ export default function Weather(props) {
 
   function handleResponse(response) {
     setWeatherData({
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -68,7 +71,7 @@ export default function Weather(props) {
         <h5>
           <FormatDate date={weatherData.date} />{" "}
         </h5>
-        <WeatherIcon code={weatherData.iconweather} />
+        <WeatherIcon code={weatherData.iconweather} size={150} />
         <h1>
           <WeatherUnit celsius={weatherData.temperature} />
         </h1>
@@ -94,6 +97,7 @@ export default function Weather(props) {
             </div>
           </div>
         </div>
+        <WeatherForecast coord={weatherData.coordinates} />
       </div>
     );
   } else {
