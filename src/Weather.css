@@ -26,6 +26,7 @@
 
 .Weather h4 {
   color: grey;
+  font-weight: bolder;
 }
 
 .Weather h5 {
@@ -33,7 +34,8 @@
 }
 
 .Weather .information {
-  margin-top: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .Weather .data {

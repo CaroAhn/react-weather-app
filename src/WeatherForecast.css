@@ -20,6 +20,7 @@
   margin-bottom: 10px;
   font-weight: bolder;
   font-size: 20px;
+  color: DimGray;
 }
 
 .WeatherForecast .temperatureForecast-max .temperatureForecast-min {
